@@ -1,6 +1,5 @@
 module Accessibility exposing
-    ( Attribute,
-    , labelBefore, labelAfter, labelHidden
+    ( labelBefore, labelAfter, labelHidden
     , inputText, inputNumber, radio, checkbox, inputColor, inputDate, inputDateTimeLocal, inputEmail, inputFile, inputHidden, inputImage, inputMonth, inputPassword, inputRange, inputSearch, inputTel, inputTime, inputUrl, inputWeek
     , tabList, tab, tabPanel
     , img, decorativeImg
@@ -22,7 +21,7 @@ module Accessibility exposing
     , small, cite, dfn, abbr, time, var, samp, kbd, s, q
     , mark, ruby, rt, rp, bdi, bdo, wbr
     , details, summary, menuitem, menu
-    , map
+    , Html, Attribute, map
     )
 
 {-|
@@ -154,13 +153,20 @@ import Accessibility.Role as Role
 import Accessibility.Style as Style
 import Accessibility.Utils exposing (..)
 import DateUtils exposing (padNumberToDoubleDigit, toMonthNumber)
-import Html exposing (Html)
+import Html
 import Html.Attributes exposing (alt, attribute, checked, for, multiple, name, pattern, src, type_, value)
 import Time exposing (Posix, Zone, toDay, toHour, toMinute, toMonth, toYear)
+
+
+{-| -}
+type alias Html msg =
+    Html.Html msg
+
 
 {-| -}
 type alias Attribute msg =
     Html.Attribute msg
+
 
 {-| All inputs must be associated with a `label`.
 
